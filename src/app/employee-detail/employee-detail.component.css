@@ -1,0 +1,7 @@
+#container {
+  display: grid;
+  grid-template-columns: 1fr;
+  border: 1px solid grey;
+  padding: 1rem;
+}
+

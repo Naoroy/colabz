@@ -1,0 +1,20 @@
+<div id="container" *ngIf="employee">
+  <h2>{{employee.firstname}}'s details</h2>
+  <div><span>id: </span> {{employee.id}}</div>
+  <div>
+    <label>firstname
+      <input id="employee-firstname"
+        [(ngModel)]="employee.firstname"
+        placeholder="firstname"
+      >
+    </label>
+  </div>
+  <div>
+    <label>lastname
+      <input id="employee-lastname"
+        [(ngModel)]="employee.lastname"
+        placeholder="lastname"
+      >
+    </label>
+  </div>
+</div>
