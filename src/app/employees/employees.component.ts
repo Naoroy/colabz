@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Employee } from '../employee';
 import { EMPLOYEES } from '../mock-employees';
+import { EmployeeService } from '../employee.service';
 
 @Component({
   selector: 'app-employees',
@@ -8,12 +9,13 @@ import { EMPLOYEES } from '../mock-employees';
   styleUrls: ['./employees.component.css']
 })
 export class EmployeesComponent implements OnInit {
-  employees: Employee[] = EMPLOYEES 
+  employees: Employee[] = [] 
   selectedEmployee?: Employee
 
-  constructor() { }
+  constructor(private employeeService: EmployeeService) { }
 
   ngOnInit(): void {
+    this.getEmployees()
   }
 
   onSelect(employee: Employee): void {
@@ -21,5 +23,10 @@ export class EmployeesComponent implements OnInit {
       this.selectedEmployee == employee
       ? undefined
       : employee
+  }
+
+  getEmployees(): void {
+    this.employeeService.getEmployees()
+      .subscribe(employees => this.employees = employees);
   }
 }
