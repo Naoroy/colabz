@@ -1,4 +1,16 @@
 <h2>Employees</h2>
+<div>
+  <label for="new-employee">Employee name: </label>
+  <input id="new-employeeFirstname" #employeeFirstname />
+  <input id="new-employeeLastname" #employeeLastname />
+
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button type="button" class="add-button"
+    (click)="add(employeeFirstname.value, employeeLastname.value);
+      employeeFirstname.value='';employeeLastname.value=''">
+    Add employee
+  </button>
+</div>
 <div id="container">
   <ul>
     <li class="employee" *ngFor="let employee of employees">
