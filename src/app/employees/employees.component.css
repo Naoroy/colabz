@@ -7,22 +7,38 @@ li.employee {
     list-style: none;
     max-width: 10rem;
     font-size: 1.3rem;
-    padding: 0;
+    padding: .5rem;
     height: 2rem;
     margin: .4rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+
+li.employee:hover {
+    background: #AAA;
 }
 
 li.employee span {
+    color: black;
+    padding: 0 .5rem
+}
+
+li.employee span:first-child {
     background-color: #44A;
     color: white;
 }
 
-li.employee button {
-    padding: 0;
+li.employee a {
     width: 100%;
     text-align: start;
+    text-decoration: none;
+    border: 1px #333 solid;
+    border-radius: 5px;
 }
 
 button.selected {
     background: #99F;
 }
+

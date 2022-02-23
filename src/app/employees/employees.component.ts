@@ -11,7 +11,6 @@ import { MessageService } from '../message.service';
 })
 export class EmployeesComponent implements OnInit {
   employees: Employee[] = [] 
-  selectedEmployee?: Employee
 
   constructor(
     private employeeService: EmployeeService,
@@ -20,15 +19,6 @@ export class EmployeesComponent implements OnInit {
 
   ngOnInit(): void {
     this.getEmployees()
-  }
-
-  onSelect(employee: Employee): void {
-    if (this.selectedEmployee == employee) {
-      this.selectedEmployee = undefined
-    } else {
-      this.selectedEmployee = employee
-      this.messageService.add(`EmployeesComponent: selected employee ${employee.id}`)
-    }
   }
 
   getEmployees(): void {
