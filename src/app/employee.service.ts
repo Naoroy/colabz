@@ -58,6 +58,16 @@ export class EmployeeService {
         catchError(this.handleError<Employee>('addEmployee'))
       )
   }
+  
+  deleteEmployee(id: number): Observable<Employee> {
+    const url = `${this.employeesUrl}/${id}`;
+
+    return this.http.delete<Employee>(url, this.httpOptions)
+      .pipe(
+        tap(_ => this.log(`deleted employee id=${id}`)),
+        catchError(this.handleError<Employee>('deleteEmployee'))
+      );
+  }
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
