@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
@@ -11,6 +12,7 @@ import { EmployeeDetailComponent } from './employee-detail/employee-detail.compo
 import { MessagesComponent } from './messages/messages.component';
 import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { EmployeeSearchComponent } from './employee-search/employee-search.component';
 
 
 @NgModule({
@@ -19,12 +21,14 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     EmployeesComponent,
     EmployeeDetailComponent,
     MessagesComponent,
-    DashboardComponent
+    DashboardComponent,
+    EmployeeSearchComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
+    RouterModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule
       .forRoot(InMemoryDataService, { dataEncapsulation: false })

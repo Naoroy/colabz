@@ -58,7 +58,7 @@ export class EmployeeService {
         catchError(this.handleError<Employee>('addEmployee'))
       )
   }
-  
+
   deleteEmployee(id: number): Observable<Employee> {
     const url = `${this.employeesUrl}/${id}`;
 
@@ -66,6 +66,20 @@ export class EmployeeService {
       .pipe(
         tap(_ => this.log(`deleted employee id=${id}`)),
         catchError(this.handleError<Employee>('deleteEmployee'))
+      );
+  }
+
+  searchEmployee(term: string): Observable<Employee[]> {
+    if (!term.trim()) {
+      return of([]);
+    }
+
+    return this.http.get<Employee[]>(`${this.employeesUrl}/?firstname=${term}`)
+      .pipe(tap(x => x.length
+        ? this.log(`found employees matching "${term}"`)
+        : this.log(`no employees matching "${term}"`)
+      ),
+        catchError(this.handleError<Employee[]>('searchEmployee', []))
       );
   }
 
