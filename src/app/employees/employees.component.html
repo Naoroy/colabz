@@ -1,16 +1,61 @@
 <h2>Employees</h2>
-<div>
-  <label for="new-employee">Employee name: </label>
-  <input id="new-employeeFirstname" #employeeFirstname />
-  <input id="new-employeeLastname" #employeeLastname />
 
-  <!-- (click) passes input value to add() and then clears the input -->
-  <button type="button" class="add-button"
-    (click)="add(employeeFirstname.value, employeeLastname.value);
-      employeeFirstname.value='';employeeLastname.value=''">
+<!-- START New employee form --> 
+<form id="new-employee">
+  <h3>Add an employee</h3>
+    <label>Firstname
+      <input
+        [formControl]="firstNameControl"
+        placeholder="John"
+        required
+      />
+    </label>
+    <label>Lastname
+      <input
+        [formControl]="lastNameControl"
+        placeholder="Doe"
+        required
+      />
+    </label>
+    <label>Birth date
+      <input
+        [formControl]="birthDateControl"
+        type="date"
+        required
+      />
+    </label>
+    <label>Phone number
+      <input
+        type="phone"
+        [formControl]="phoneNumberControl"
+        placeholder="06 12 34 56 78"
+        required
+      />
+    </label>
+    <label>Personal e-mail
+      <input
+        [formControl]="personalMailControl"
+        placeholder="john.doe@mail.co"
+        type="email"
+        required
+      />
+    </label>
+    <label>Professional e-mail
+      <input
+        [formControl]="professionalMailControl"
+        type="email"
+        placeholder="john.doe@colabz.org"
+        required
+      />
+    </label>
+
+  <button type="submit" class="add-button"
+    (click)="add()">
     Add employee
   </button>
-</div>
+</form>
+<!-- END New employee form --> 
+
 <div id="container">
   <ul>
     <li class="employee" *ngFor="let employee of employees">

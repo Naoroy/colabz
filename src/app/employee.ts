@@ -3,5 +3,9 @@ export interface Employee {
     firstname: string;
     lastname: string;
     jobTitle?: string;
-    isExecutive: boolean
+    birthDate?: Date;
+    phoneNumber?: string;
+    personalMail?: string;
+    professionalMail?: string;
+    isExecutive?: boolean;
 }

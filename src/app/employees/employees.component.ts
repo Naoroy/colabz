@@ -3,6 +3,7 @@ import { Employee } from '../employee';
 import { EMPLOYEES } from '../mock-employees';
 import { EmployeeService } from '../employee.service';
 import { MessageService } from '../message.service';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-employees',
@@ -11,6 +12,13 @@ import { MessageService } from '../message.service';
 })
 export class EmployeesComponent implements OnInit {
   employees: Employee[] = [] 
+  firstNameControl: FormControl = new FormControl('')
+  lastNameControl: FormControl = new FormControl('')
+  birthDateControl: FormControl = new FormControl('')
+  phoneNumberControl: FormControl = new FormControl('')
+  personalMailControl: FormControl = new FormControl('')
+  professionalMailControl: FormControl = new FormControl('')
+
 
   constructor(
     private employeeService: EmployeeService,
@@ -26,18 +34,27 @@ export class EmployeesComponent implements OnInit {
       .subscribe(employees => this.employees = employees);
   }
 
-  add(
-    firstname: string,
-    lastname: string
-  ): void {
-    firstname = firstname.trim();
-    lastname = lastname.trim();
+  add(): void {
+    const firstname = this.firstNameControl.value.trim()
+    const lastname = this.lastNameControl.value.trim()
+    const birthDate = this.birthDateControl.value.trim()
+    const phoneNumber = this.phoneNumberControl.value.trim()
+    const personalMail = this.personalMailControl.value.trim()
+    const professionalMail = this.professionalMailControl.value.trim()
 
-    if (!firstname) { return; }
-    this.employeeService.addEmployee({ firstname, lastname } as Employee)
+    this.employeeService.addEmployee({
+      firstname,
+      lastname,
+      birthDate,
+      phoneNumber,
+      personalMail,
+      professionalMail
+    } as Employee)
       .subscribe(employee => {
+        console.log(employee)
         this.employees.push(employee);
       });
+
   }
 
   delete(employee: Employee): void {

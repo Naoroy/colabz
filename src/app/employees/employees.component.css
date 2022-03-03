@@ -2,7 +2,15 @@
     display: grid;
     grid-template-columns: 1fr 2fr;
 }
-
+#new-employee {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr;
+}
+h3 {
+    font-size: 120%;
+    text-align: center;
+}
 li.employee {
     list-style: none;
     max-width: 10rem;

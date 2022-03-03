@@ -1,1 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
+/* Application-wide Styles */
+h1 {
+  color: #555;
+  font-family: 'Smooch Sans', sans-serif;
+  font-size: 250%;
+}
+h2, h3 {
+  color: #555;
+  font-family: 'Smooch Sans', sans-serif;
+  font-size: 150%;
+}
+body {
+  margin: 2em;
+}
+body, input[type="text"], button {
+  color: #333;
+}
+label {
+  font-weight: bold;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+/* everywhere else */
+* {
+  font-family: 'Lato', sans-serif;
+  font-weight: light;
+}

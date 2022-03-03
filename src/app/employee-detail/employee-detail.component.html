@@ -1,22 +1,61 @@
 <div id="container" *ngIf="employee">
   <button type="button" (click)="goBack()">Go back</button>
   <h2>{{employee.firstname}}'s details</h2>
-  <div><span>id: </span> {{employee.id}}</div>
-  <div>
+  <form id="employee-form">
+    <label>id
+      <input
+        value="{{employee.id}}"
+        disabled
+      >
+    </label>
     <label>firstname
-      <input id="employee-firstname"
+      <input
+        id="employee-firstname"
+        name="firstname"
         [(ngModel)]="employee.firstname"
         placeholder="firstname"
       >
     </label>
-  </div>
-  <div>
     <label>lastname
-      <input id="employee-lastname"
+      <input
+        id="employee-lastname"
+        name="lastname"
         [(ngModel)]="employee.lastname"
         placeholder="lastname"
       >
     </label>
-  </div>
+    <label>birth date
+      <input
+        id="employee-birthdate"
+        name="birthDate"
+        [(ngModel)]="employee.birthDate"
+        type="date"
+      >
+    </label>
+    <label>Phone number
+      <input
+        id="employee-phonenumber"
+        name="phoneNumber"
+        [(ngModel)]="employee.phoneNumber"
+        type="text"
+      >
+    </label>
+    <label>Personal E-mail address
+      <input
+        id="employee-personalmail"
+        name="personalMail"
+        [(ngModel)]="employee.personalMail"
+        type="email"
+      >
+    </label>
+    <label>Professional E-mail address
+      <input
+        id="employee-professionalmail"
+        name="professionalMail"
+        [(ngModel)]="employee.professionalMail"
+        type="email"
+      >
+    </label>
+  </form>
   <button type="button" (click)="save()">Save</button>
 </div>
